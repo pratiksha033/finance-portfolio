@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const api = axios.create({
-  baseURL: "http://localhost:5000/api"
+  baseURL: "https://finance-portfolio-j579.onrender.com"
 })
 
 export const fetchPortfolio = () =>
