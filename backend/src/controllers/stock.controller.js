@@ -7,25 +7,51 @@ const portfolio = readPortfolio();
 
 exports.getPortfolio = async (req, res) => {
   try {
+
+  
+    const totalInvestment = portfolio.reduce(
+      (sum, s) => sum + (s.purchasePrice * s.qty),
+      0
+    );
+
     const result = await Promise.all(
       portfolio.map(async (stock) => {
-        const cached = cache.get(stock.Symbol);
 
-        if (cached) return { ...stock, ...cached };
+        const cached = cache.get(stock.symbol);
+        if (cached) return cached;
 
-        const cmp = await getCMP(stock.Symbol);
-        const fundamentals = await getFundamentals(stock.Symbol);
+       
+        const cmp = await getCMP(stock.symbol);
+        const fundamentals = await getFundamentals(stock.symbol);
 
-        const data = { cmp, ...fundamentals };
+       
+        const investment = stock.purchasePrice * stock.qty;
+        const presentValue = cmp * stock.qty;
+        const gainLoss = presentValue - investment;
+        const portfolioPercent = (investment / totalInvestment) * 100;
 
-        cache.set(stock.Symbol, data);
+     
+        const finalData = {
+          ...stock,
+          cmp,
+          pe: fundamentals.pe,
+          earnings: fundamentals.earnings,
+          investment,
+          presentValue,
+          gainLoss,
+          portfolioPercent
+        };
 
-        return { ...stock, ...data };
+        cache.set(stock.symbol, finalData);
+
+        return finalData;
       })
     );
 
     res.json(result);
+
   } catch (err) {
-    res.status(500).json({ message: 'Error fetching portfolio' });
+    console.error(err);
+    res.status(500).json({ message: err.message });
   }
 };

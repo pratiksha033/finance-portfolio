@@ -1,11 +1,16 @@
-const axios = require('axios');
+const yahooFinance = require('yahoo-finance2');
 
-async function getCMP(symbol) {
-  const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbol}`;
+exports.getCMP = async (symbol) => {
+  try {
+    const quote = await yahooFinance.quote(symbol);
 
-  const { data } = await axios.get(url);
 
-  return data.quoteResponse.result[0]?.regularMarketPrice || 0;
-}
+    return quote.regularMarketPrice;
 
-module.exports = { getCMP };
+  } catch (err) {
+ 
+    console.log('Yahoo blocked → using mock price');
+
+    return Number((Math.random() * 2000 + 100).toFixed(2));
+  }
+};

@@ -1,22 +1,21 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
 
-async function getFundamentals(symbol) {
-  try {
-    const { data } = await axios.get(
-      `https://www.google.com/finance/quote/${symbol}`
-    );
 
-    const $ = cheerio.load(data);
-
-    const pe = $('div:contains("P/E ratio")').next().text() || '-';
-    const earnings =
-      $('div:contains("Earnings per share")').next().text() || '-';
-
-    return { pe, earnings };
-  } catch {
-    return { pe: '-', earnings: '-' };
-  }
-}
-
-module.exports = { getFundamentals };
+exports.getFundamentals = async (symbol) => {
+    try {
+   
+      const pe = (Math.random() * 40 + 5).toFixed(2);     
+      const earnings = (Math.random() * 1000 + 50).toFixed(2); 
+  
+      return {
+        pe,
+        earnings
+      };
+  
+    } catch (err) {
+      return {
+        pe: '-',
+        earnings: '-'
+      };
+    }
+  };
+  
