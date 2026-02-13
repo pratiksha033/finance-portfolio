@@ -54,7 +54,7 @@ export default function PortfolioCharts({ data }: { data: any[] }) {
               dataKey="value"
               nameKey="name"
               outerRadius={110}
-              label={({ name, percent }) =>
+              label={({ name, percent = 0 }) =>
                 `${name} ${(percent * 100).toFixed(0)}%`
               }
             >
