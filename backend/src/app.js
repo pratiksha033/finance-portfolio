@@ -6,12 +6,10 @@ const stockRoutes = require('./routes/stock.routes');
 const app = express();
 
 app.use(cors({
-    origin: [
-      "http://localhost:3000",
-      "https://finance-portfolio-r24k.vercel.app"
-    ],
-  }));
-  
+  origin: true,
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.use('/api', stockRoutes);
