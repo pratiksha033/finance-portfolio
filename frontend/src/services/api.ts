@@ -1,8 +1,8 @@
 import axios from "axios"
 
 export const api = axios.create({
-  baseURL: "https://finance-portfolio-j579.onrender.com"
+  baseURL: process.env.NEXT_PUBLIC_API_URL
 })
 
 export const fetchPortfolio = () =>
-  api.get("/portfolio")
+  api.get("/api/portfolio")
