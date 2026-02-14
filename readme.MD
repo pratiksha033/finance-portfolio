@@ -7,54 +7,54 @@ A full-stack Finance Portfolio Dashboard that reads portfolio data from Excel, f
 ## 🏗 Tech Stack
 # Frontend
 
--Next.js 14
+- Next.js 14
 
--React 18
+- React 18
 
--TypeScript
+- TypeScript
 
--Tailwind CSS
+- Tailwind CSS
 
--Recharts (Charts)
+- Recharts (Charts)
 
--Axios
+- Axios
 
 # Backend
 
--Node.js
+- Node.js
 
--Express.js
+- Express.js
 
--XLSX (Excel parsing)
+- XLSX (Excel parsing)
 
--Axios
+- Axios
 
--Node Cache
+- Node Cache
 
--CORS
+- CORS
 
 ## 📌 Features
 1. 📥 Excel Integration
 
--Reads portfolio data from excel.xlsx
+- Reads portfolio data from excel.xlsx
 
 Extracts:
 
--Stock Name
+- Stock Name
 
--Symbol
+- Symbol
 
--Purchase Price
+- Purchase Price
 
--Quantity
+- Quantity
 
--Sector
+- Sector
 
 2. 📈 Live Market Data
 
 Fetches Current Market Price (CMP) from Yahoo Finance (unofficial API handling).
 
--Fetches:
+- Fetches:
 
 P/E Ratio
 
@@ -65,29 +65,29 @@ Latest Earnings
 
 - In-memory caching using node-cache
 
--Auto refresh every 15 seconds
+- Auto refresh every 15 seconds
 
--Proper CORS configuration for production
+- Proper CORS configuration for production
 
 ## 📊 Dashboard UI
 
--Summary Cards (Total Investment, Current Value, P/L)
+- Summary Cards (Total Investment, Current Value, P/L)
 
--Sector Allocation Pie Chart
+- Sector Allocation Pie Chart
 
--Profit/Loss Bar Chart
+- Profit/Loss Bar Chart
 
--Search functionality
+- Search functionality
 
--Sector filter dropdown
+- Sector filter dropdown
 
--Column sorting
+- Column sorting
 
--Pagination
+- Pagination
 
--Responsive design
+- Responsive design
 
--Dark/Light theme support
+- Dark/Light theme support
 
 
 
@@ -103,13 +103,13 @@ Latest Earnings
      npm run dev
 
 
--Backend runs at:
+- Backend runs at:
 
       http://localhost:5000
 
 3️⃣ Frontend Setup
 
--Create .env.local inside frontend folder:
+- Create .env.local inside frontend folder:
 
        NEXT_PUBLIC_API_URL=http://localhost:5000/api
 
@@ -128,39 +128,39 @@ Frontend runs at:
 ## 🔍 Challenges Faced
 1️⃣ Yahoo Finance API
 
--Yahoo does not provide an official public API.
+- Yahoo does not provide an official public API.
 
--Faced 401 errors and blocking issues.
+- Faced 401 errors and blocking issues.
 
--Implemented proper headers and fallback handling.
+- Implemented proper headers and fallback handling.
 
 2️⃣ Google Finance Data
 
--No official API available.
+- No official API available.
 
--Required scraping/unofficial handling.
+- Required scraping/unofficial handling.
 
--Implemented error-safe fallback logic.
+- Implemented error-safe fallback logic.
 
 3️⃣ Excel Parsing
 
--Excel sheet had formatted rows and sector headers.
+- Excel sheet had formatted rows and sector headers.
 
--Needed to parse raw rows and dynamically detect sector rows.
+- Needed to parse raw rows and dynamically detect sector rows.
 
 4️⃣ Pagination Logic
 
--Pagination initially disappeared when filters changed.
+- Pagination initially disappeared when filters changed.
 
--Fixed by resetting page on filter update.
+- Fixed by resetting page on filter update.
 
 5️⃣ Deployment Issues
 
--CORS errors between Render and Vercel.
+- CORS errors between Render and Vercel.
 
--Fixed API route mismatch (/api/portfolio)
+- Fixed API route mismatch (/api/portfolio)
 
--Corrected environment variable usage.
+- Corrected environment variable usage.
 
 Resolved 404 caused by missing /api prefix.
 
@@ -172,4 +172,5 @@ Resolved 404 caused by missing /api prefix.
 ## 👩‍💻 Author
 
 Pratiksha Parihar
+
 
