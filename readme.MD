@@ -5,220 +5,171 @@ A full-stack Finance Portfolio Dashboard that reads portfolio data from Excel, f
 
 
 ## 🏗 Tech Stack
-Frontend
+# Frontend
 
-Next.js 14
+-Next.js 14
 
-React 18
+-React 18
 
-TypeScript
+-TypeScript
 
-Tailwind CSS
+-Tailwind CSS
 
-Recharts (Charts)
+-Recharts (Charts)
 
-Axios
+-Axios
 
-Backend
+# Backend
 
-Node.js
+-Node.js
 
-Express.js
+-Express.js
 
-XLSX (Excel parsing)
+-XLSX (Excel parsing)
 
-Axios
+-Axios
 
-Node Cache
+-Node Cache
 
-CORS
+-CORS
 
-📌 Features
-📥 Excel Integration
+## 📌 Features
+1. 📥 Excel Integration
 
-Reads portfolio data from excel.xlsx
+-Reads portfolio data from excel.xlsx
 
 Extracts:
 
-Stock Name
+-Stock Name
 
-Symbol
+-Symbol
 
-Purchase Price
+-Purchase Price
 
-Quantity
+-Quantity
 
-Sector
+-Sector
 
-📈 Live Market Data
+2. 📈 Live Market Data
 
 Fetches Current Market Price (CMP) from Yahoo Finance (unofficial API handling).
 
-Fetches:
+-Fetches:
 
 P/E Ratio
 
 Latest Earnings
 (Using scraping/unofficial API approach)
 
-⚡ Backend Optimizations
+## ⚡ Backend Optimizations
 
-In-memory caching using node-cache
+- In-memory caching using node-cache
 
-Auto refresh every 15 seconds
+-Auto refresh every 15 seconds
 
-Proper CORS configuration for production
+-Proper CORS configuration for production
 
-📊 Dashboard UI
+## 📊 Dashboard UI
 
-Summary Cards (Total Investment, Current Value, P/L)
+-Summary Cards (Total Investment, Current Value, P/L)
 
-Sector Allocation Pie Chart
+-Sector Allocation Pie Chart
 
-Profit/Loss Bar Chart
+-Profit/Loss Bar Chart
 
-Search functionality
+-Search functionality
 
-Sector filter dropdown
+-Sector filter dropdown
 
-Column sorting
+-Column sorting
 
-Pagination
+-Pagination
 
-Responsive design
+-Responsive design
 
-Dark/Light theme support
+-Dark/Light theme support
 
-📂 Project Structure
-finance-portfolio/
-│
-├── backend/
-│   ├── src/
-│   │   ├── controllers/
-│   │   ├── services/
-│   │   ├── routes/
-│   │   └── server.js
-│   └── excel.xlsx
-│
-├── frontend/
-│   ├── src/
-│   │   ├── app/
-│   │   ├── components/
-│   │   ├── services/
-│   │   └── hooks/
-│
-└── README.md
 
-🛠 Setup Instructions
+
+## 🛠 Setup Instructions
 1️⃣ Clone the Repository
-git clone https://github.com/your-username/finance-portfolio.git
+
+     ```bash  
+     git clone https://github.com/your-username/finance-portfolio.git
 
 2️⃣ Backend Setup
-cd backend
-npm install
-npm run dev
+     cd backend
+      npm install
+     npm run dev
 
 
-Backend runs at:
+-Backend runs at:
 
-http://localhost:5000
+      http://localhost:5000
 
 3️⃣ Frontend Setup
 
-Create .env.local inside frontend folder:
+-Create .env.local inside frontend folder:
 
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
+       NEXT_PUBLIC_API_URL=http://localhost:5000/api
 
 
 Then run:
 
-cd frontend
-npm install
-npm run dev
+       cd frontend
+       npm install
+       npm run dev
 
 
 Frontend runs at:
 
-http://localhost:3000
+      http://localhost:3000
 
-🔍 Challenges Faced
+## 🔍 Challenges Faced
 1️⃣ Yahoo Finance API
 
-Yahoo does not provide an official public API.
+-Yahoo does not provide an official public API.
 
-Faced 401 errors and blocking issues.
+-Faced 401 errors and blocking issues.
 
-Implemented proper headers and fallback handling.
+-Implemented proper headers and fallback handling.
 
 2️⃣ Google Finance Data
 
-No official API available.
+-No official API available.
 
-Required scraping/unofficial handling.
+-Required scraping/unofficial handling.
 
-Implemented error-safe fallback logic.
+-Implemented error-safe fallback logic.
 
 3️⃣ Excel Parsing
 
-Excel sheet had formatted rows and sector headers.
+-Excel sheet had formatted rows and sector headers.
 
-Needed to parse raw rows and dynamically detect sector rows.
+-Needed to parse raw rows and dynamically detect sector rows.
 
 4️⃣ Pagination Logic
 
-Pagination initially disappeared when filters changed.
+-Pagination initially disappeared when filters changed.
 
-Fixed by resetting page on filter update.
+-Fixed by resetting page on filter update.
 
 5️⃣ Deployment Issues
 
-CORS errors between Render and Vercel.
+-CORS errors between Render and Vercel.
 
-Fixed API route mismatch (/api/portfolio)
+-Fixed API route mismatch (/api/portfolio)
 
-Corrected environment variable usage.
+-Corrected environment variable usage.
 
 Resolved 404 caused by missing /api prefix.
 
-📌 API Endpoint
-GET /api/portfolio
 
 
-Returns structured JSON:
 
-[
-  {
-    name,
-    symbol,
-    purchasePrice,
-    qty,
-    sector,
-    cmp,
-    pe,
-    earnings,
-    presentValue,
-    gainLoss
-  }
-]
 
-🎯 Key Learnings
 
-Handling unofficial financial APIs
-
-Production CORS configuration
-
-Environment variable management in Vercel
-
-Real-world deployment debugging
-
-Data transformation from Excel to structured JSON
-
-🎥 Demo Video
-
-Loom walkthrough explaining architecture, implementation decisions, and challenges.
-
-(Attach Loom link here)
-
-👩‍💻 Author
+## 👩‍💻 Author
 
 Pratiksha Parihar
+
