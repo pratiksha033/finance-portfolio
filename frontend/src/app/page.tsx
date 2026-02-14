@@ -1,24 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { usePortfolio } from "@/hooks/usePortfolio";
 import PortfolioTable from "@/components/PortfolioTable";
 import SummaryCards from "@/components/SummaryCards";
 import PortfolioCharts from "@/components/PortfolioCharts";
+
 export default function Home() {
-  const [data, setData] = useState<any[]>([]);
+  const { data, loading } = usePortfolio();
 
-  const fetchData = async () => {
-    const res = await axios.get("http://localhost:5000/api/portfolio");
-    setData(res.data);
-  };
-
-  useEffect(() => {
-    fetchData();
-
-    const interval = setInterval(fetchData, 15000);
-    return () => clearInterval(interval);
-  }, []);
+  if (loading) return <div className="p-6">Loading...</div>;
 
   return (
     <main className="p-6">
